@@ -1,9 +1,11 @@
 ;;; helm-khard-test.el --- Tests for helm-khard.el   -*- lexical-binding: t -*-
 
-(defun helm-khard-test ()
+(defun helm-khard-test (&optional test-dir-path)
   "Test `helm-khard'."
   (interactive)
-  (let* ((helm-khard-test-dir (file-name-directory (buffer-file-name)))
+  (let* ((helm-khard-test-dir (or test-dir-path
+                                  (read-directory-name "Path to test directory: ")))
+         ;; (helm-khard-test-dir (file-name-directory (buffer-file-name)))
          (helm-khard-config-file (expand-file-name (concat helm-khard-test-dir
                                                            "khard.conf")))
          (helm-khard-vdirsyncer-command "echo \"Faking the execution of vdirsyncer ...\"")
@@ -19,16 +21,16 @@
 
  ;;; Test Khard CLI
  ;;;  Accepted fields are "anniversary", "birthday", "categories", "email", "emails", "formatted_name", "index", "name", "nicknames", "notes", "organisations", "phone", "phone_numbers", "post_addresses", "roles", "titles", "uid", "version", "webpages".
-    (shell-command (concat helm-khard-executable
-                           " -c " helm-khard-config-file
-                           ;; " show d4435f29-9382-46c4-9ab7-99c9ff8eec3c"
-                           " list -F emails"
-                           ;; " list -F phone_numbers"
-                           ;; " list -F name"
-                           ;; " list -F birthday"
-                           ;; " list -F post_addresses"
-                           ;; " list -F organisations"
-                           ))
+    ;; (shell-command (concat helm-khard-executable
+    ;;                        " -c " helm-khard-config-file
+    ;;                        ;; " show d4435f29-9382-46c4-9ab7-99c9ff8eec3c"
+    ;;                        " list -F emails"
+    ;;                        ;; " list -F phone_numbers"
+    ;;                        ;; " list -F name"
+    ;;                        ;; " list -F birthday"
+    ;;                        ;; " list -F post_addresses"
+    ;;                        ;; " list -F organisations"
+    ;;                        ))
 
  ;;; Test Helm interface
     (helm-khard)
