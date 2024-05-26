@@ -5,7 +5,7 @@ This README uses [[https://orgmode.org/][Org mode]].
 
 Manage your vCard contacts with [[https://github.com/emacs-helm/helm][Helm]] and [[https://github.com/lucc/khard][khard]] (and [[https://vdirsyncer.pimutils.org/][vdirsyncer]]).
 
-* Features
+** Features
 
 - Search contacts (with Helm)
 - Insert arbitrary contact fields into buffer
@@ -16,24 +16,24 @@ Manage your vCard contacts with [[https://github.com/emacs-helm/helm][Helm]] and
 - Export, import or visit contact file (VCF) 
 - Integration into mu4e
 
-* Installation
+** Installation
 
 Helm-khard depends on khard for accessing and modifying locally stored contacts (each contact as single VCF), and uses vdirsyncer to synchronize these contacts with a remote CardDAV server. 
 
 [[file:helm-khard.png]]
 
-** Requirements outside Emacs
+*** Requirements outside Emacs
 
 - [[https://github.com/lucc/khard][khard]] >= v0.17
 - [[https://vdirsyncer.pimutils.org/][vdirsyncer]] >= 0.19
 
 Note that khard and vdirsyncer must also be properly configured. Please refer to their respective documentation on how to achieve this. An example configuration can be found in the tests directory of helm-khard.
 
-** Installation with Melpa
+*** Installation with Melpa
 
 Not yet available.
 
-** Installation from Github
+*** Installation from Github
 
 Download =helm-khard.el= to your =.emacs.d= folder and add the following code to your init file:
 
@@ -44,15 +44,15 @@ Download =helm-khard.el= to your =.emacs.d= folder and add the following code to
 
 Optionally, you can also download the tests directory.
 
-* Usage
+** Usage
 
 =M-x helm-khard=
 
 If you want to play around with helm-khard, you can evaluate =tests/helm-khard-test.el= and run =M-x helm-khard-test=.
 
-* Configuration of helm-khard
+** Configuration of helm-khard
 
-** Helm-khard variables
+*** Helm-khard variables
 
 Certain helm-khard variables are customizable, see =(customize-group "helm-khard")=. 
 
@@ -65,7 +65,7 @@ The following are probably the most relevant ones:
 - =helm-khard-candidate-format-plist=: Specifies the sequence and column width of formatted candidates. When
 the width is nil, the corresponding field is not trimmed of filled.
 
-** Integration with mu4e address completion
+*** Integration with mu4e address completion
 
 When [[https://www.djcbsoftware.nl/code/mu/][mu4e]] is loaded, one can add the helm-khard contacts to the mu4e contacts for autocompletion by advising =mu4e--update-contacts= like this: 
 
@@ -73,8 +73,6 @@ When [[https://www.djcbsoftware.nl/code/mu/][mu4e]] is loaded, one can add the h
 (advice-add 'mu4e--update-contacts :after #'helm-khard--inject-contacts-into-mu4e)
 #+END_SRC
 
-* Troubleshooting
-
-* Ideas & plans
+** Ideas & plans
 
 As for my own needs while using it on a daily basis, helm-khard is feature-complete.  
