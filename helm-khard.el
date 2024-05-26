@@ -5,7 +5,7 @@
 ;; Author: Timm Lichte <timm.lichte@uni-tuebingen.de>
 ;; URL: https://github.com/timmli/.emacs.d/tree/master/lisp/helm-khard.el
 ;; Version: 0
-;; Last modified: 2024-05-26 Sun 10:07:56
+;; Last modified: 2024-05-26 Sun 10:51:29
 ;; Package-Requires: ((helm "3.9.6") (uuidgen "20220405.1345") (yaml-mode "0.0.13"))
 ;; Keywords: helm
 
@@ -289,10 +289,10 @@ FIELD can be of different formats due to Khard:
   (1- (window-body-width)))
 
 (defcustom helm-khard-candidate-format-plist 
-	'(:name+organisations 40 :emails 50 :categories nil)
-	"Specifies the sequence and column width of formatted candidates. When
+  '(:name+organisations 40 :emails 50 :categories nil)
+  "Specifies the sequence and column width of formatted candidates. When
 the width is nil, the corresponding field is not trimmed of filled."
-	:type 'plist
+  :type 'plist
   :group 'helm-khard)
 
 (defun hk--trim-or-fill-field-string (field-value column-length)
@@ -304,16 +304,16 @@ the width is nil, the corresponding field is not trimmed of filled."
     (string-pad field-value column-length)))
 
 (defun helm-khard-candidate-formatter (contact)
-	"Format candidates of `helm-khard'."
-	(cl-loop
-	 for field in (plist-get-keys helm-khard-candidate-format-plist)
+  "Format candidates of `helm-khard'."
+  (cl-loop
+   for field in (plist-get-keys helm-khard-candidate-format-plist)
    for field-width = (plist-get helm-khard-candidate-format-plist field)
-	 for field-value  = (if (eq field :name+organisations)
-										      (concat (plist-get contact :name)
-														      (unless (string= (plist-get contact :organisations) "")
-															      (concat "  (" (plist-get contact :organisations) ")")))
-		                    (plist-get contact field))
-	 concat (if field-width
+   for field-value  = (if (eq field :name+organisations)
+                          (concat (plist-get contact :name)
+                                  (unless (string= (plist-get contact :organisations) "")
+                                    (concat "  (" (plist-get contact :organisations) ")")))
+                        (plist-get contact field))
+   concat (if field-width
               (hk--trim-or-fill-field-string field-value field-width)
             field-value)))
 
