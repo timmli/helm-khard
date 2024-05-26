@@ -3,9 +3,9 @@
 ;; Copyright (C) 2024 Timm Lichte
 
 ;; Author: Timm Lichte <timm.lichte@uni-tuebingen.de>
-;; URL: https://github.com/timmli/.emacs.d/tree/master/lisp/helm-khard.el
-;; Version: 0
-;; Last modified: 2024-05-26 Sun 10:51:29
+;; URL: https://github.com/timmli/helm-khard/blob/main/helm-khard.el
+;; Version: 1.0
+;; Last modified: 2024-05-26 Sun 10:57:32
 ;; Package-Requires: ((helm "3.9.6") (uuidgen "20220405.1345") (yaml-mode "0.0.13"))
 ;; Keywords: helm
 
