@@ -1,9 +1,9 @@
 #+TITLE: helm-khard: A Helm interface for khard
 #+AUTHOR: Timm Lichte
 
-This README uses [[https://orgmode.org/][Org mode]].
+Manage your vCard contacts inside [[https://www.gnu.org/software/emacs/][Emacs]] with [[https://github.com/emacs-helm/helm][Helm]] and [[https://github.com/lucc/khard][khard]] (and [[https://vdirsyncer.pimutils.org/][vdirsyncer]]).
 
-Manage your vCard contacts with [[https://github.com/emacs-helm/helm][Helm]] and [[https://github.com/lucc/khard][khard]] (and [[https://vdirsyncer.pimutils.org/][vdirsyncer]]).
+This README uses [[https://orgmode.org/][Org mode]].
 
 ** Features
 
@@ -74,4 +74,10 @@ When [[https://www.djcbsoftware.nl/code/mu/][mu4e]] is loaded, one can add the h
 
 ** Ideas & plans
 
-As for my own needs while using it on a daily basis, helm-khard is feature-complete.  
+As for my own needs, helm-khard is feature-complete.  
+
+** Alternative and related Emacs packages
+
+- [[https://github.com/DamienCassou/khardel][khardel]] and [[https://github.com/DamienCassou/vdirel/][vdirel]] from Damien Cassou
+- [[http://savannah.nongnu.org/projects/bbdb/][BBDB]]
+- [[https://github.com/girzel/ebdb][EBDB]] 
