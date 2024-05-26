@@ -1,0 +1,38 @@
+#+TITLE: helm-khard: Helm interface for Khard
+#+AUTHOR: Timm Lichte
+
+This README uses [[https://orgmode.org/][Org mode]].
+
+* About
+
+=helm-khard= uses [[https://github.com/emacs-helm/helm][Helm]] and [[https://github.com/lucc/khard][Khard]] to access and organize your local address book within Emacs.
+
+Currently the following actions can be performed:
+- Insert fields of a contact
+- Pretty-print contact
+- Edit contact
+- Create contact
+- Delete contact
+- Move/Copy contacts between address books
+- Merge contacts
+- Attach contact VCF to message
+- Copy/Visit VCF of contact
+- Import contacts from a VCF
+- Call vdirsyncer to sync database
+
+Furthermore, contacts can be injected into mail agents such as [[https://github.com/djcb/mu][mu4e]]. 
+
+* Installation
+
+*Note:* 
+- Helm (>= v3.9) and Khard (>= v0.17) must be installed separately. 
+- Khard assumes that your contacts are stored in the [[https://vdirsyncer.pimutils.org/en/stable/vdir.html][vdir format]] used by [[https://github.com/pimutils/vdirsyncer][vdirsyncer]]. This essentially means, that each contact file contains exactly one contact in vCard format. 
+
+* Configuration & use
+
+- Support of mu4e
+- 
+
+* Acknowledgements
+
+
