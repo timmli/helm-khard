@@ -62,8 +62,7 @@ The following are probably the most relevant ones:
 - =helm-khard-sync-after-editing=: If non-nil, synchronize local and remote contacts after editing a contact.
 - =helm-khard-sync-during-initialization=: If non-nil, synchronize local and remote contacts during initionalization.
 - =helm-khard-insert-with-organisation=: If non-nil, add organisation when inserting a contact.
-- =helm-khard-candidate-format-plist=: Specifies the sequence and column width of formatted candidates. When
-the width is nil, the corresponding field is not trimmed of filled.
+- =helm-khard-candidate-format-plist=: Specifies the sequence and column width of formatted candidates. When the width is nil, the corresponding field is not trimmed of filled.
 
 *** Integration with mu4e address completion
 
