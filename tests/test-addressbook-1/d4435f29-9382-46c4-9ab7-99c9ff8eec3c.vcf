@@ -2,12 +2,13 @@ BEGIN:VCARD
 VERSION:3.0
 UID:d4435f29-9382-46c4-9ab7-99c9ff8eec3c
 BDAY:2000-01-01
-EMAIL;TYPE=work:john.doe@work.com
-EMAIL;TYPE=work:john.doe@job.org
+CATEGORIES:Poker team
 EMAIL;TYPE=home:johnny@doe.me
+EMAIL;TYPE=work:john.doe@job.org
+EMAIL;TYPE=work:john.doe@work.com
 FN:John Doe
 N:Doe;John;;;
-TITLE:Dr.
 ORG:Doe GmbH
-REV:20231212T212905Z
+REV:20240602T004533Z
+TITLE:Dr.
 END:VCARD

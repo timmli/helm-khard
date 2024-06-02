@@ -5,7 +5,7 @@
 ;; Author: Timm Lichte <timm.lichte@uni-tuebingen.de>
 ;; URL: https://github.com/timmli/helm-khard/blob/main/helm-khard.el
 ;; Version: 1.0
-;; Last modified: 2024-05-26 Sun 10:57:32
+;; Last modified: 2024-06-02 Sun 01:15:43
 ;; Package-Requires: ((helm "3.9.6") (uuidgen "20220405.1345") (yaml-mode "0.0.13"))
 ;; Keywords: helm
 
@@ -253,9 +253,9 @@ FIELD can be of different formats due to Khard:
 - Key-value structure = {'KEY': ['VALUE1', ...], ...} or
                         {'KEY1': 'VALUE1', 'KEY2': 'VALUE2' ...} or
                         {'KEY1': [{'KEY2': 'VALUE2', ....], ...} etc. 
-- List of strings = [['STRING1'], ['STRING2'], ...]
-- String
-"
+- List of strings = [['STRING1'], ['STRING2'], ...] or
+                    ['STRING1', 'STRING2', ...]
+- String = 'STRING' or ['STRING']"
   (save-match-data
     (cond
      (;; Process flat feature-value structures by concatenating all values
@@ -274,6 +274,9 @@ FIELD can be of different formats due to Khard:
                                     ", ")
                        t))
         (string-join output ", ")))
+     (;; Process single string in angular brackets
+      (string-match "^\\['\\(.*\\)'\\]$" field)
+      (string-join (split-string (match-string 1 field) "', '") ", "))
      (;; Process list of strings by concatenating them
       (string-match "^\\[\\(.*\\)\\]$" field)
       (string-join (cl-loop
