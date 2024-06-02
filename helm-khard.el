@@ -5,7 +5,7 @@
 ;; Author: Timm Lichte <timm.lichte@uni-tuebingen.de>
 ;; URL: https://github.com/timmli/helm-khard/blob/main/helm-khard.el
 ;; Version: 1.0
-;; Last modified: 2024-06-02 Sun 01:15:43
+;; Last modified: 2024-06-02 Sun 10:30:44
 ;; Package-Requires: ((helm "3.9.6") (uuidgen "20220405.1345") (yaml-mode "0.0.13"))
 ;; Keywords: helm
 
@@ -274,10 +274,10 @@ FIELD can be of different formats due to Khard:
                                     ", ")
                        t))
         (string-join output ", ")))
-     (;; Process single string in angular brackets
+     (;; Process list of strings in one angular bracket
       (string-match "^\\['\\(.*\\)'\\]$" field)
       (string-join (split-string (match-string 1 field) "', '") ", "))
-     (;; Process list of strings by concatenating them
+     (;; Process list of strings
       (string-match "^\\[\\(.*\\)\\]$" field)
       (string-join (cl-loop
                     for item in (split-string (match-string 1 field) ", ")
