@@ -13,7 +13,8 @@
          (helm-khard-insert-with-organisation nil)
          (helm-khard-sync-after-editing t)
          (helm-khard-sync-during-initialization t))
-    (setenv "HELM_KHARD_TEST_DIR" helm-khard-test-dir)
+    (setenv "HELM_KHARD_TEST_DIR" helm-khard-test-dir) ; used in khard.conf
+    ;; (getenv "KHARD_CONFIG")
     (require 'helm-khard)
 
    ;;; Populate `helm-khard--candidates'
