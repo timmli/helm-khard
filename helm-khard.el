@@ -5,7 +5,7 @@
 ;; Author: Timm Lichte <timm.lichte@uni-tuebingen.de>
 ;; URL: https://github.com/timmli/helm-khard/blob/main/helm-khard.el
 ;; Version: 1.0
-;; Last modified: 2024-06-02 Sun 10:30:44
+;; Last modified: 2024-06-23 Sun 12:23:02
 ;; Package-Requires: ((helm "3.9.6") (uuidgen "20220405.1345") (yaml-mode "0.0.13"))
 ;; Keywords: helm
 
@@ -492,8 +492,12 @@ window width changes.")
       (setq-local helm-khard-edited-contact-uuid nil))
     (switch-to-buffer buffer)
     (goto-char (point-min))
-    ;; Add helm-input as formatted name and to the kill ring.
-    (when (re-search-forward "^Formatted name :" nil t)
+    ;; Insert helm-input and add it to the kill ring.
+    (when (or
+           (and (string-match thing-at-point-email-regexp input)
+                (re-search-forward "^Email :.*?\n.*?\n[[:space:]]*work :"
+                                   nil t))
+           (re-search-forward "^Formatted name :" nil t))
       (insert (concat " " (kill-new (or  input "")))))
     (message "Press %s to save the contact and close the buffer."
              (substitute-command-keys "\\[helm-khard-edit-finish]"))))
@@ -1090,8 +1094,8 @@ actions used in `helm-khard'.")
                         (buffer-substring-no-properties (region-beginning) (region-end)))
                    (and (thing-at-point 'email t)
                         (string-remove-prefix
-                         "<"(string-remove-suffix
-                             ">" (downcase (thing-at-point 'email t)))))
+                         "<" (string-remove-suffix
+                              ">" (downcase (thing-at-point 'email t)))))
                    ;; (thing-at-point 'word t)
                    "")))
 
