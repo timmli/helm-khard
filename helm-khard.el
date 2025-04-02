@@ -5,7 +5,7 @@
 ;; Author: Timm Lichte <timm.lichte@uni-tuebingen.de>
 ;; URL: https://github.com/timmli/helm-khard/blob/main/helm-khard.el
 ;; Version: 1.0
-;; Last modified: 2024-06-23 Sun 12:23:02
+;; Last modified: 2025-04-02 Wed 08:12:57
 ;; Package-Requires: ((helm "3.9.6") (uuidgen "20220405.1345") (yaml-mode "0.0.13"))
 ;; Keywords: helm
 
@@ -288,7 +288,7 @@ FIELD can be of different formats due to Khard:
       t field))))
 
 (defun helm-khard--window-width ()
-  "Return the width of the window to pass to `helm-khard--candidates-formatter'."
+  "Return the width of the window to pass to `helm-khard-candidate-formatter'."
   (1- (window-body-width)))
 
 (defcustom helm-khard-candidate-format-plist 
@@ -544,7 +544,8 @@ If nil, the buffer represents a new contact.")
 
 (defcustom helm-khard-vcard-version "3.0"
   "Version of the VCard format used."
-  :type 'string)
+  :type 'string
+  :group 'helm-khard)
 
 (defun helm-khard-edit-finish ()
   "Save contact in current buffer with helm-khard."
