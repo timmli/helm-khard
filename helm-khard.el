@@ -5,7 +5,7 @@
 ;; Author: Timm Lichte <timm.lichte@uni-tuebingen.de>
 ;; URL: https://github.com/timmli/helm-khard/blob/main/helm-khard.el
 ;; Version: 1.0
-;; Last modified: 2025-04-02 Wed 08:12:57
+;; Last modified: 2025-04-02 Wed 08:26:51
 ;; Package-Requires: ((helm "3.9.6") (uuidgen "20220405.1345") (yaml-mode "0.0.13"))
 ;; Keywords: helm
 
@@ -292,14 +292,14 @@ FIELD can be of different formats due to Khard:
   (1- (window-body-width)))
 
 (defcustom helm-khard-candidate-format-plist 
-  '(:name+organisations 40 :emails 50 :categories nil)
+  '(:name+organisations 40 :emails 50 :categories nil :notes nil)
   "Specifies the sequence and column width of formatted candidates. When
 the width is nil, the corresponding field is not trimmed of filled."
   :type 'plist
   :group 'helm-khard)
 
 (defun hk--trim-or-fill-field-string (field-value column-length)
-  "Trim of fill a FIELD-VALUE to a specified COLUMN-LENGTH."
+  "Trim or fill a FIELD-VALUE to a specified COLUMN-LENGTH."
   (if (> (length field-value) (- column-length 2))
       (concat (truncate-string-to-width field-value
                                         (- column-length 2))              
