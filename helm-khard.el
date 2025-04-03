@@ -1,11 +1,11 @@
 ;;; helm-khard.el --- Helm interface for Khard   -*- lexical-binding: t -*-
 
-;; Copyright (C) 2024 Timm Lichte
+;; Copyright (C) 2025 Timm Lichte
 
 ;; Author: Timm Lichte <timm.lichte@uni-tuebingen.de>
 ;; URL: https://github.com/timmli/helm-khard/blob/main/helm-khard.el
 ;; Version: 1.0
-;; Last modified: 2025-04-02 Wed 08:26:51
+;; Last modified: 2025-04-03 Thu 08:38:19
 ;; Package-Requires: ((helm "3.9.6") (uuidgen "20220405.1345") (yaml-mode "0.0.13"))
 ;; Keywords: helm
 
