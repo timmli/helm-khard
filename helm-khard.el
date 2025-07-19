@@ -5,7 +5,7 @@
 ;; Author: Timm Lichte <timm.lichte@uni-tuebingen.de>
 ;; URL: https://github.com/timmli/helm-khard/blob/main/helm-khard.el
 ;; Version: 1.0
-;; Last modified: 2025-04-03 Thu 08:38:19
+;; Last modified: 2025-07-19 Sat 13:36:14
 ;; Package-Requires: ((helm "3.9.6") (uuidgen "20220405.1345") (yaml-mode "0.0.13"))
 ;; Keywords: helm
 
@@ -471,7 +471,11 @@ window width changes.")
                     "-c"  helm-khard-config-file
                     "show"
                     "--format" "yaml"
-                    "--uid" uuid)
+                    (if (string-version-lessp helm-khard--khard-version "0.19")
+                        "--uid" "")
+                    (concat (unless (string-version-lessp helm-khard--khard-version "0.19")
+                              "uid:")
+                            uuid))
       (goto-char (point-min))
       (helm-khard-edit-mode)
       (setq-local helm-khard-edited-contact-uuid uuid))
