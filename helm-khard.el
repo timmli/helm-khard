@@ -5,7 +5,7 @@
 ;; Author: Timm Lichte <timm.lichte@uni-tuebingen.de>
 ;; URL: https://github.com/timmli/helm-khard/blob/main/helm-khard.el
 ;; Version: 1.0
-;; Last modified: 2025-10-24 Fri 15:18:26
+;; Last modified: 2025-10-24 Fri 15:36:02
 ;; Package-Requires: ((helm "3.9.6") (uuidgen "20220405.1345") (yaml-mode "0.0.13"))
 ;; Keywords: helm
 
@@ -232,6 +232,11 @@ plist."
      for contact in contacts
      if (helm-khard--plist-superset-p contact query)
      collect contact)))
+
+;; Taken from org-ref/doi-utils.el
+(defun plist-get-keys (plist)
+  "Return keys in a PLIST."
+  (cl-loop for (key _value) on plist by #'cddr collect key))
 
 (defun helm-khard--plist-superset-p (super-plist sub-plist)
   "Non-nil if SUB-PLIST is contained in SUPER-PLIST."
