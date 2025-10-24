@@ -17,8 +17,6 @@
 (use-package helm-khard
   :load-path "../../../helm-khard")
 
-(message "Khard verson: %s" (helm-khard--get-version))
-
 (setq helm-khard-test-dir (expand-file-name (concat user-emacs-directory "../"))
 			;; (helm-khard-test-dir (file-name-directory (buffer-file-name)))
 			helm-khard-config-file (expand-file-name (concat helm-khard-test-dir
@@ -35,5 +33,6 @@
 ;;; Test Helm interface
 (find-file "helm-khard-tests.el")
 (goto-char (point-max))
+(insert ";;Khard version: " (helm-khard--get-version))
 (helm-khard)
 
