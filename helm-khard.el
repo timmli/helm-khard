@@ -5,7 +5,7 @@
 ;; Author: Timm Lichte <timm.lichte@uni-tuebingen.de>
 ;; URL: https://github.com/timmli/helm-khard/blob/main/helm-khard.el
 ;; Version: 1.0
-;; Last modified: 2025-07-19 Sat 13:36:14
+;; Last modified: 2025-10-24 Fri 15:18:26
 ;; Package-Requires: ((helm "3.9.6") (uuidgen "20220405.1345") (yaml-mode "0.0.13"))
 ;; Keywords: helm
 
@@ -35,6 +35,7 @@
 ;;; Code:
 
 (require 'helm)
+(require 'helm-buffers)
 (require 'uuidgen)
 (require 'yaml-mode)
 
